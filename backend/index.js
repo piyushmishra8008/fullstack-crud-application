@@ -20,10 +20,15 @@ app.post('/update/:id', async (req, res) => {
   let user = await usermodels.findOneAndUpdate({ _id: req.params.id },{ name, email, job, favouriteColor, status, Rate },{ new: true });
 
 });
-app.get('/delete/:id', async (req, res) => {
-  let user = await usermodels.findOneAndDelete({ _id: req.params.id });
-
+app.delete('/delete/:id', async (req, res) => {
+  try {
+    await usermodels.findOneAndDelete({ _id: req.params.id });
+    res.json({ success: true, message: "User deleted" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
 });
+
 app.post('/create', async (req, res) => {
   try {
     console.log("Incoming body:", req.body);

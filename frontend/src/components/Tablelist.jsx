@@ -1,4 +1,5 @@
 import { useState,useEffect, use } from "react";
+import axios from "axios";
 
 export default function Tablelist({onopen}){
   const [tabledata,setTabledata]=useState([]);
@@ -17,6 +18,17 @@ export default function Tablelist({onopen}){
     fetchdata();
   }, []);
   const clients = tabledata;
+  const handledelete = async (id) => {
+    const confrimdelete = window.confirm("Are you sure you want to delete this client?");
+    if (confrimdelete) {
+    try {
+      await axios.delete(`http://localhost:3000/delete/${id}`);
+      setTabledata((prevData) => prevData.filter((client) => client._id !== id));
+    } catch (error) {
+      console.error("Error deleting client:", error);
+    }
+  }
+  };
     return(
         <div className="overflow-x-auto mt-10">
   <table className="table ">
@@ -53,7 +65,7 @@ export default function Tablelist({onopen}){
           <button className="btn btn-secondary rounded-full " onClick={() => onopen("edit", client) }>Update</button>
         </td>
         <td>
-          <button className="btn btn-accent rounded-full">Delete</button>
+          <button className="btn btn-accent rounded-full" onClick={() => handledelete(client._id)}>Delete</button>
         </td>
       </tr>
         )

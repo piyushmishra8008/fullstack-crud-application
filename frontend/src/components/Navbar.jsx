@@ -3,7 +3,7 @@ export default function Navbar({onopen}){
         <div className="navbar bg-base-100 shadow-sm p-4">
   <div className="navbar-start">
    
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl bg-zinc-900">Fullstack-Crud</a>
   </div>
   <div className="navbar-center ">
     <div className="form-control">
