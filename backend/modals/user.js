@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect(
-  'mongodb+srv://piyushmishra66666_db_user:mwTuu0ZTLboQ61r8@cluster0.8b1wsgp.mongodb.net/userDB?retryWrites=true&w=majority'
+  'modgodb_url';
 )
 .then(() => console.log('✅ Connected to MongoDB Atlas'))
 .catch(err => console.error('❌ Connection error:', err));
