@@ -84,30 +84,3 @@ Use Add Client button to add new clients.
 Click Update to edit existing clients.
 
 Click Delete to remove a client.
-
-Folder Structure
-fullstack-crud/
-├── client/              # React frontend
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Modelform.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Tablelist.jsx
-│   │   ├── App.jsx
-│   │   └── index.js
-├── server/              # Node.js backend
-│   ├── models/
-│   │   └── user.js
-│   ├── routes/
-│   │   └── api.js
-│   ├── index.js
-│   └── package.json
-├── README.md
-└── package.json
-
-API Endpoints
-Method	Endpoint	Description
-GET	/read	Get all clients
-POST	/create	Add a new client
-POST	/update/:id	Update a client by ID
-DELETE	/delete/:id	Delete a client by ID
